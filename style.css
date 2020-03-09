@@ -34,6 +34,10 @@ body{
     border-radius: 0;
 }
 
+.main-menu ul li.current-menu-item a{
+    color:red;
+}
+
 /*estils footer*/
 .footer-menu ul, .footer-widgets ul{
     list-style: none;

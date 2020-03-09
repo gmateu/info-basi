@@ -19,6 +19,21 @@ function info_basic_config(){
             'info_basic_footer_menu' => 'Info Basic Footer Menu',
         )
         );
+
+        add_theme_support('woocommerce',array(
+            'thumbnail_image_width'     => 255,
+            'single_image_width'        =>255,
+            'product_grid'              =>array(
+                    'default_rows'    =>10,
+                    'min_rows'        =>5,
+                    'max_rows'        =>10,
+                    'default_columns' =>1,
+                    'min_columns'     =>1,
+                    'max_columns'       
+            ),
+        ));
+        add_theme_support('wc-product-gallery-zoom');
+        add_theme_support('wc-product-gallery-ligthbox');
 }
 
 add_action( 'after_setup_theme', 'info_basic_config', 0 );
