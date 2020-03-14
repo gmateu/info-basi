@@ -4,8 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package WordPress
- * @subpackage Twenty_Nineteen
+ * @package Info Basic
  * @since 1.0.0
  */
 echo get_header();
@@ -13,34 +12,7 @@ echo get_header();
     
     <div class="content-area">
         <div id="main">
-            <section class="slider">
-                <div class="container">
-                    <div class="row">
-                        slider
-                    </div>
-                </div>    
-            </section>
-            <section class="popular-products">
-                <div class="container">
-                    <div class="row">
-                        productos populares
-                    </div>
-                </div>
-            </section>
-            <section class="new-arrivals">
-                <div class="container">
-                    <div class="row">
-                        novedades
-                    </div>
-                </div>
-            </section>
-            <section class="deal-of-the-week">
-                <div class="container">
-                    <div class="row">
-                        oferta semanal
-                    </div>
-                </div>
-            </section>
+            
             <section class="info-blog">
                 <div class="container">
                     <div class="row">

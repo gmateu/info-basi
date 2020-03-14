@@ -14,7 +14,7 @@ body{
 }
 
 .brand{
-    background-color: red;
+    background-color: green;
 }
 
 .second-column{
@@ -39,6 +39,17 @@ body{
 }
 
 /*estils footer*/
+.seccio{
+    padding: 4px;
+}
+.footer-widgets{
+    background-color: #2196F3;
+    color: white;
+}
+
+footer .copy-right{
+    background-color: #1A78C2;
+}
 .footer-menu ul, .footer-widgets ul{
     list-style: none;
     padding: 0;

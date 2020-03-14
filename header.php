@@ -6,7 +6,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
     <?=wp_head();?>
 </head>
-<body>
+<body <?php body_class()?>>
 
 <header>
     <section id="search">
@@ -20,7 +20,7 @@
                 <div class="brand col-3">logo</div>
                 <div class="second-column col-9">
                     <div class="account">cuenta</div>
-                    <div class="main-menu">
+                    <nav class="main-menu">
                         <?php 
                             wp_nav_menu(
                                 array(
@@ -28,7 +28,7 @@
                                 )
                             );
                         ?>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>
