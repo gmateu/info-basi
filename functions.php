@@ -43,20 +43,9 @@ function info_basic_config(){
 add_action( 'after_setup_theme', 'info_basic_config', 0 );
 
 
-//woocommerce
-function info_basic_open_container_row(){
-    ?>
-        <div class="container"><div class="row">
-    <?php
-}
-add_action('woocommerce_before_main_content', 'info_basic_open_container_row',5);
+require get_template_directory().'/lib/wc_modifications.php';
 
 
 
-function info_basic_close_container_row(){
-    ?>
-        </div></div>
-    <?php
-}
-add_action('woocommerce_after_main_content', 'info_basic_close_container_row', 5);
+
 ?>
