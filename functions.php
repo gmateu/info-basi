@@ -41,6 +41,14 @@ function info_basic_config(){
         add_theme_support('wc-product-gallery-lightbox');
         add_theme_support( 'wc-product-gallery-slider' );
 
+        add_theme_support( 'custom-logo' ,array(
+            'height' => 85,
+            'width'  => 160,
+            'flex_height'=>true,
+            'flex_width'=>true,
+        ));
+
+
         if ( ! isset( $content_width ) ) {
             $content_width = 600;
         }

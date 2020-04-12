@@ -31,7 +31,16 @@
     <section id="top-bar">
         <div class="container">
             <div class="row">
-                <div class="brand col-12 col-md-3 col-lg-2 text-center text-md-left">logo</div>
+                <div class="brand col-12 col-md-3 col-lg-2 text-center text-md-left">
+                    <a href="<?=site_url('home')?>">
+                        <?php if(has_custom_logo()):?>
+                            <?php the_custom_logo()?>
+                        <?php else:?>
+                            <p class="site-litle"><?=bloginfo('title')?></p>
+                            <span><?=bloginfo('description')?></span>
+                        <?php endif;?>
+                    </a>
+                </div>
                 <div class="second-column col-12 col-md-9 col-lg-10">
                     <div class="row">
                         <div class="account col-12">cuenta</div>
