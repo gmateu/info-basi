@@ -21,7 +21,7 @@ echo get_header();
                                 while(have_posts()){
                                     the_post();
                                 ?>
-                                <article>
+                                <article class="col">
                                     <h2><?=the_title()?> </h2>
                                     <div class="contingu">
                                         <?=the_content()?>
