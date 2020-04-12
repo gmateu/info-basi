@@ -25,7 +25,9 @@
 <header>
     <section id="search">
         <div class="container">
-            Search
+            <div class="text-center d-md-flex align-items-center">
+                <?php get_search_form(  )?>
+            </div>
         </div>    
     </section>
     <section id="top-bar">
