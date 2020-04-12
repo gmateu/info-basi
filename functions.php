@@ -42,8 +42,10 @@ function info_basic_config(){
 
 add_action( 'after_setup_theme', 'info_basic_config', 0 );
 
+if(class_exists('woocommerce')){
 
-require get_template_directory().'/lib/wc_modifications.php';
+    require get_template_directory().'/lib/wc_modifications.php';
+}
 
 
 
