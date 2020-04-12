@@ -56,6 +56,11 @@ body{
     margin: 0; 
 }
 
+.main-menu .dropdown:hover>.dropdown-menu,
+.main-menu .dropup:hover>.dropdown-menu{
+    display: block;
+}
+
 .footer-menu ul li a{ 
     color: #939393; 
     text-decoration: none;
