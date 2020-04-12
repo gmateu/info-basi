@@ -12,6 +12,10 @@ Tags: e-commerce, custom-menu, custom-logo, featured-images, footer-widgets, the
 */
 
 
+body{
+    font-family: 'Rajdhani',sans-serif;
+}
+
 /* Header - Main Menu */
 .main-menu{
     padding: 0;

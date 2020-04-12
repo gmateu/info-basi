@@ -48,6 +48,9 @@ function info_basic_wc_modify(){
     add_action('woocommerce_before_main_content', 'info_basic_add_shop_tags',9);
     function info_basic_add_shop_tags(){
         if (is_shop()){
+            ?>
+                <div class="sidebar-shop col-lg-9 col-md-8 order-1 order-md-2">
+            <?php
         }else{
             ?>
                 <div class="col">
