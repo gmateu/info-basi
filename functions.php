@@ -2,6 +2,7 @@
 
 
 require get_template_directory().'/lib/class-wp-bootstrap-navwalker.php';
+require get_template_directory().'/lib/customizer.php';
 
 
 function info_basic_scripts(){

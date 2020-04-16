@@ -39,7 +39,11 @@
             <div class="container">
                 <div class="row">
                     <div class="copy-right col-12 col-md-6">
-                        copyright
+                        <p>
+                            <?php
+                               echo get_theme_mod('set_copyright','Tots els drets reservats');
+                            ?>
+                        </p>
                     </div>
                     <div class="footer-menu col-12 text-left text-md-right col-md-6">
                         <?php
