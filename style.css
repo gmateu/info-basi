@@ -73,6 +73,27 @@ body{
 
 /* WooCommerce */
 
+/*Cart*/
+.cart .cart-icon{
+    background-image: url('img/cart.svg');
+    background-repeat: no-repeat;
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.cart .items{
+    background-color: #ca2424;
+    color:white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+}
+
+
 /* Grid System */
 .woocommerce .col2-set .col-1,
 .woocommerce .col2-set .col-2{

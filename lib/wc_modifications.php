@@ -89,3 +89,21 @@ function info_basic_wc_modify(){
 
 add_action('wp','info_basic_wc_modify');
 
+
+/**
+ * Show cart contents / total Ajax
+ */
+add_filter( 'woocommerce_add_to_cart_fragments', 'info_basic_woocommerce_header_add_to_cart_fragment' );
+
+function info_basic_woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+	<span class="items"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+	<?php
+	$fragments['span.items'] = ob_get_clean();
+	return $fragments;
+}
+
