@@ -13,7 +13,12 @@ function info_basic_scripts(){
 
 
     //GOOGLE FONTS
-    wp_enqueue_style('custom-google-fonts','https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700|https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700');
+    wp_enqueue_style('custom-google-fonts','https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700|Seaweed+Script');
+
+    //FLEX SLIDER
+    wp_enqueue_script('flex_slider_js',get_template_directory_uri().'/inc/flexslider/jquery.flexslider.js',array('jquery'),'',true);
+    wp_enqueue_script('flex_slider_js_2',get_template_directory_uri().'/inc/flexslider/flexslider.js',array('jquery'),'',true);
+    wp_enqueue_style('flex_slider_css',get_template_directory_uri().'/inc/flexslider/flexslider.css',array(),'','all');
 }
 
 add_action( 'wp_enqueue_scripts', 'info_basic_scripts');
@@ -48,6 +53,9 @@ function info_basic_config(){
             'flex_height'=>true,
             'flex_width'=>true,
         ));
+
+        //un image custom size
+        add_image_size('info_basic_slider',1920,800,array('center','center'));
 
 
         if ( ! isset( $content_width ) ) {

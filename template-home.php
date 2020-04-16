@@ -9,11 +9,54 @@ echo get_header();
     <div class="content-area">
         <div id="main">
             <section class="slider">
-                <div class="container">
-                    <div class="row">
-                        slider
-                    </div>
-                </div>    
+                <div class="flexslider" style="direction:rtl">
+                    <ul class="slides">
+                        <?php 
+                            
+                            for ($i=1;$i<=3;$i++){
+                                $slider_page[$i]        = get_theme_mod('set_slider_page'.$i);
+                                $slider_button_text[$i] = get_theme_mod('set_slider_button_text'.$i);
+                                $slider_button_url[$i]  = get_theme_mod('set_slider_button_url'.$i);
+
+                            }
+                            $args = array(
+                                'post_type'         => 'page',
+                                'posts_per_page'    => 3,
+                                'posts__in'         => $slider_page,
+                                'orderby'           => 'posts__in',
+
+                            );
+
+                            $slider_loop = new WP_Query($args);
+                            if($slider_loop->have_posts()){
+                                $count=1;
+                                while($slider_loop->have_posts()){
+                                    $slider_loop->the_post();
+                                    ?>
+                                    <li>
+                                        <?php the_post_thumbnail('info_basic_slider',array('class' => 'img-fluid'));?>
+                                        <div class="container">
+                                            <div class="slider-details-container">
+                                            <div class="slider-title">
+                                                <h1><?php the_title()?></h1>
+                                            </div>
+                                            <div class="slider-description">
+                                                <div class="subtitle">
+                                                    <?php the_content()?>
+                                                </div>
+                                                <a href="<?php echo $slider_button_url[$count]?>" class="link"><?php echo $slider_button_text[$count]?></a>
+                                                <?php $count++;?>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            wp_reset_postdata();
+                        ?>
+                    </ul>
+                </div> 
             </section>
             <section class="popular-products">
                 <div class="container">
