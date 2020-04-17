@@ -51,6 +51,8 @@ function info_basic_wc_modify(){
             ?>
                 <div class="sidebar-shop col-lg-9 col-md-8 order-1 order-md-2">
             <?php
+            //afegim descripció breu del produte
+            add_action('woocommerce_shop_loop_item_title','the_excerpt',5);
         }else{
             ?>
                 <div class="col">
@@ -82,8 +84,6 @@ function info_basic_wc_modify(){
     
     }*/
     
-    //afegim descripció breu del produte
-    add_action('woocommerce_shop_loop_item_title','the_excerpt',5);
 
 }
 

@@ -102,6 +102,84 @@
     }
 
      //SLIDER SECTION
+     /*----------------------------------------------------------------------------------------*/
+      //copyright section
+
+      $wp_customize->add_section(
+        'sec_home_page',array(
+            'title'        => 'Home Page Products and Blog settings',
+            'description'  => 'Home Page section'
+        )
+    );
+
+    $wp_customize->add_setting(
+        'set_popular_max_num',array(
+            'type'                 => 'theme_mod',
+            'default'              => '',
+            'sanitize_callback'    => 'absint'
+        )
+    );
+    
+    $wp_customize->add_control(
+        'set_popular_max_num',array(
+            'label'        => 'Popular Products Max num',
+            'description'  => 'Popular Products Max num',
+            'section'      => 'sec_home_page',
+            'type'         => 'number'
+        )
+    );
+    $wp_customize->add_setting(
+        'set_popular_max_col',array(
+            'type'                 => 'theme_mod',
+            'default'              => '',
+            'sanitize_callback'    => 'absint'
+        )
+    );
+    
+    $wp_customize->add_control(
+        'set_popular_max_col',array(
+            'label'        => 'Popular Products Max col',
+            'description'  => 'Popular Products Max col',
+            'section'      => 'sec_home_page',
+            'type'         => 'number'
+        )
+    );
+
+    $wp_customize->add_setting(
+        'set_new_arrivals_max_num',array(
+            'type'                 => 'theme_mod',
+            'default'              => '',
+            'sanitize_callback'    => 'absint'
+        )
+    );
+    
+    $wp_customize->add_control(
+        'set_new_arrivals_max_num',array(
+            'label'        => 'New Arraivals Max Number',
+            'description'  => 'New Arraivals Max Number',
+            'section'      => 'sec_home_page',
+            'type'         => 'number'
+        )
+    );
+    $wp_customize->add_setting(
+        'set_new_arrivals_max_col',array(
+            'type'                 => 'theme_mod',
+            'default'              => '',
+            'sanitize_callback'    => 'absint'
+        )
+    );
+    
+    $wp_customize->add_control(
+        'set_new_arrivals_max_col',array(
+            'label'        => 'New Arraivals Max col',
+            'description'  => 'New Arraivals Max col',
+            'section'      => 'sec_home_page',
+            'type'         => 'number'
+        )
+    );
+
+
+    /*-----------------------------------------------------------------------------*/
 
  }
 
