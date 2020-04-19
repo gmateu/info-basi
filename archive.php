@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The index.php for our theme
+ * The archive.php for our theme
  *
 * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -18,9 +18,9 @@
 echo get_header();
 ?>
 
-    <div class="jumbotron">
-        <h1>Benvinguts al nostre blog</h1>
-        <p>Gràcies per visitar-nos</p>
+<div class="jumbotron">
+        <h1><?php the_archive_title()?></h1>
+        <p><?php the_archive_description()?></p>
     </div>
     
     <div class="content-area">
@@ -58,6 +58,9 @@ echo get_header();
             </section>
         </div>
     </div>
+
+
 <?php
-echo get_footer(  );
+echo get_footer();
+
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The index.php for our theme
+ * The single.php for our theme
  *
 * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -18,30 +18,32 @@
 echo get_header();
 ?>
 
-    <div class="jumbotron">
-        <h1>Benvinguts al nostre blog</h1>
-        <p>Gràcies per visitar-nos</p>
-    </div>
+<?php
+    if(have_posts()){
+        while(have_posts()){
+            the_post();
+?>
     
-    <div class="content-area">
+<div class="jumbotron">
+    <h1><?=the_title()?></h1>
+    <p>Canviar</p>
+</div>
+
+<div class="content-area">
         <div id="main">
             <section class="info-blog">
                 <div class="container">
-                        <?php
-                            if(have_posts()){
-                                while(have_posts()){
-                                    the_post();
+                            <?php
                                 ?>
                                 <article>
-                                    <h2 class="display-5"><a href="<?=the_permalink()?>"><?=the_title()?></a></h2>
                                     <div class="metabox">
-                                        <p>Posted by <?=the_author_posts_link()?> on <?=the_time('Y-n-j')?> in <?=get_the_category_list(', ')?></p>
+                                        <p>
+                                            <a href="<?=site_url('/blog')?>">Blog Home</a>
+                                            Posted by <?=the_author_posts_link()?> on <?=the_time('Y-n-j')?> in <?=get_the_category_list(', ')?>
+                                        </p>    
                                     </div>
                                     <div class="contingu">
-                                        <?=the_excerpt()?>
-                                        <p>
-                                            <a class="btn btn-sm btn-info" href="<?=the_permalink()?>">Continue reading &raquo;</a>
-                                        </p>
+                                        <?=the_content()?>
                                     </div>
                                 </article>
                                 <hr>
@@ -58,6 +60,8 @@ echo get_header();
             </section>
         </div>
     </div>
+
 <?php
-echo get_footer(  );
+
+    get_footer();
 ?>
