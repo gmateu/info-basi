@@ -138,27 +138,29 @@ echo get_header();
             <?php endif;?>
             <section class="info-blog">
                 <div class="container">
-                    <div class="row">
+                    <h3>From our blogs</h3>
+                    <div class="summary-posts">
                         <?php
-                            if(have_posts()){
-                                while(have_posts()){
-                                    the_post();
-                                ?>
-                                <article>
-                                    <h2><?=the_title()?> </h2>
-                                    <div class="contingu">
-                                        <?=the_content()?>
-                                    </div>
-                                </article>
-                                <?php 
-                                }
-                            }else{
-                                ?>
-                            <p>Nada que ver</p>
-                                <?php
-                            }
-                        ?>
-                    </div>
+                        $homepagePosts = new WP_Query(array(
+                            'posts_per_page' => 1,
+                        ));
+                        while($homepagePosts->have_posts()){
+                            $homepagePosts->the_post();
+                            ?>
+                            <div class="home-post">
+                                <h4><a href="<?=the_permalink()?>"><?=the_title()?></a></h4>
+                                <span class="data"><?php the_time('d-M-Y')?></span>
+                                <p><?=wp_trim_words(get_the_excerpt(),18)?>
+                            </p>
+                            <a href="<?=the_permalink()?>">Read more</a>
+                            </div>
+                            <hr>
+                        <?php
+                        }
+                        wp_reset_postdata();
+                    ?>
+                        <p class="text-center"><a href="<?=site_url('/blog')?>" class="btn btn-lg btn-info">Verue posts</a></p>
+                    </div><!--sumamry posts-->
                 </div>
             </section>
         </div>
