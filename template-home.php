@@ -9,54 +9,56 @@ echo get_header();
     <div class="content-area">
         <div id="main">
             <section class="slider">
-                <div class="flexslider" style="direction:rtl">
-                    <ul class="slides">
-                        <?php 
-                            
-                            for ($i=1;$i<=3;$i++){
-                                $slider_page[$i]        = get_theme_mod('set_slider_page'.$i);
-                                $slider_button_text[$i] = get_theme_mod('set_slider_button_text'.$i);
-                                $slider_button_url[$i]  = get_theme_mod('set_slider_button_url'.$i);
-
-                            }
-                            $args = array(
-                                'post_type'         => 'page',
-                                'posts_per_page'    => 3,
-                                'posts__in'         => $slider_page,
-                                'orderby'           => 'posts__in',
-
-                            );
-
-                            $slider_loop = new WP_Query($args);
-                            if($slider_loop->have_posts()){
-                                $count=1;
-                                while($slider_loop->have_posts()){
-                                    $slider_loop->the_post();
-                                    ?>
-                                    <li>
-                                        <?php the_post_thumbnail('info_basic_slider',array('class' => 'img-fluid'));?>
-                                        <div class="container">
-                                            <div class="slider-details-container">
-                                            <div class="slider-title">
-                                                <h1><?php the_title()?></h1>
-                                            </div>
-                                            <div class="slider-description">
-                                                <div class="subtitle">
-                                                    <?php the_content()?>
-                                                </div>
-                                                <a href="<?php echo $slider_button_url[$count]?>" class="link"><?php echo $slider_button_text[$count]?></a>
-                                                <?php $count++;?>
-                                            </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <?php
-                                }
-                            }
-                            wp_reset_postdata();
-                        ?>
-                    </ul>
-                </div> 
+                <?php
+                    $post= get_page_by_title('slider');
+                    $sliderPG=get_pages(array(
+                        'child_of' => $post->ID,
+                    ));
+                    
+                ?>
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <!--indicadors-->
+                    <ol class="carousel-indicators">
+                    <?php
+                        $count=0;
+                        foreach ($sliderPG as $p){
+                    ?>
+                        <li data-target="#carouselExampleControls" data-slide-to="<?=$count?>" class="active"></li>
+                    <?php
+                        $count++;
+                      }
+                    ?>
+                    </ol> 
+                    
+                    
+                    <!--imgatges-->
+                    <?php
+                        $active="active";
+                        foreach ($sliderPG as $p){
+                            echo get_the_title($p->ID);
+                            ?>
+                            <div class="carousel-item <?=$active?>">
+                                <?php echo get_the_post_thumbnail($p->ID,'info_basic_slider',array('class' => 'img-fluid d-block w-100'))?>
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5><?=$p->post_title?></h5>
+                                    <p><?=$p->post_content?></p>
+                                </div>
+                            </div>
+                            <?php
+                            $active="";
+                        }
+                    ?>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </div>
             </section>
 
             <?php if(class_exists('WooCommerce')):?>
