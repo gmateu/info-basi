@@ -31,6 +31,8 @@ function info_basic_config(){
         )
         );
 
+	add_theme_support( 'post-thumbnails' );
+
         add_theme_support('woocommerce',array(
             'thumbnail_image_width'     => 255,
             'single_image_width'        => 255,
