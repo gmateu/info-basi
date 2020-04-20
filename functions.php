@@ -73,4 +73,23 @@ if(class_exists('woocommerce')){
 
 
 
-?>
+//custom post types
+add_action( 'init', 'infobasic_post_types' );
+function infobasic_post_types(){
+    register_post_type( 'cicles', array(
+        'public' => true,
+        'labels' => array(
+            'name'          => 'Cicles',
+            'add_new_item'  => 'Afegeix cicle',
+            'edit_item'     => 'Edita cicle',
+            'all_items'     => 'Tots els cicles',
+            'singular_name' => 'Cicle'
+        ),
+        'supports' => array('title', 'editor', 'custom-fields', 'excerpt', 'thumbnail'),
+        'menu_icon' => 'dashicons-awards',
+        'show_in_rest' => true,
+    ));
+}
+
+
+
