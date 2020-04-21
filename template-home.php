@@ -62,7 +62,35 @@ echo get_header();
             </section>
 
             <?php if(class_exists('WooCommerce')):?>
-            <section class="popular-products">
+            <section>
+                <!--fet amb custom query-->
+                <div class="container">
+                    <div class="row">
+                        <?php
+                            $popularProducts=new WP_Query(array(
+                                'posts_per_page'    => 4,
+                                'post_type'         => 'product',
+                                'meta_key'          => '_sale_price',
+                            ));
+                            ?>
+                            <h2>On sale</h2>
+                            <div class="woocommerce columns-4 ">
+                                <ul class="products columns-4">
+                            <?php
+                            
+                            while($popularProducts->have_posts()){
+                                $popularProducts->the_post(); 
+                                wc_get_template_part('content','product');
+                                    
+                            }
+                        ?>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section><!--popular-products-->
+
+            <!--<section>
                 <?php
                 $popular_limit = get_theme_mod('set_popular_max_num',4);
                 $popular_col = get_theme_mod('set_popular_max_col',4);
@@ -84,7 +112,7 @@ echo get_header();
                         <?php echo do_shortcode('[products limit="'.$arrival_limit.'" columns="'.$arrival_col.'" orderby="date"]')?>
                     </div>
                 </div>
-            </section>
+            </section>-->
             <?php
             $showdeal			= get_theme_mod( 'set_deal_show', 0 );
             $deal 				= get_theme_mod( 'set_deal' );
